@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MY-E-COMM-APP/resources-config.git
+          username: niteeshnadiger
+          password: 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
+          default-label: master
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+
+
+server:
+  port: ${SERVER_PORT:8888}
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "threaddump"
+  endpoint:
+    health:
+      show-details: always
+      group:
+        custom:
+          include:
+            - diskSpace
+            - ping
+          show-components: always
+          show-details: always
+info: 
+  application:
+    name: E-Comm-Config-Server
+    description: A demo application with custom info
+    version: 1.0
+  environment:
+    enabled: true # Exposes environment properties
+  custom:
+    message: Custom info!
+    author: Niteesh Nadiger
+
+logging:
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %thread ${PID} [%X{correlationId}] %-5level %logger{36} - %class{1} - %msg%n"
+  level:
+    '[org.springframework.web]': debug
