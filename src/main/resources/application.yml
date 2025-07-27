@@ -6,8 +6,6 @@ spring:
       server:
         git:
           uri: https://github.com/MY-E-COMM-APP/resources-config.git
-          username: niteeshnadiger
-          password: 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
           default-label: master
 
 
